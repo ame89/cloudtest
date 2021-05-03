@@ -6,4 +6,3 @@ echo "run $name ..."
 ./$name
 rm ./$name
 echo "$name done."
-
