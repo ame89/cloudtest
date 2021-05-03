@@ -1,5 +1,10 @@
-FROM node:6.14.2
-COPY server.js .
+FROM golang:buster
+WORKDIR /app
+#ADD . .
+COPY go.mod . 
+COPY go.sum .
+COPY main.go .
+#RUN go mod init
+RUN go build -o app
 EXPOSE 8080
-#CMD node server.js
-ENTRYPOINT [ "node", "server.js" ]
+CMD ["./app"]
